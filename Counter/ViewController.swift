@@ -9,8 +9,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var valueLabel: UILabel!
-    @IBOutlet weak var textView: UITextView!
+    @IBOutlet private weak var valueLabel: UILabel!
+    @IBOutlet private weak var textView: UITextView!
     
     private var count = 0
     
@@ -44,32 +44,32 @@ class ViewController: UIViewController {
         valueLabel.text = "\(count)"
     }
 
-    @IBAction func minusButtonPressed(_ sender: Any) {
+    @IBAction private func minusButtonPressed(_ sender: Any) {
         
         if count == 0 {
-            log += "\(date.description): попытка уменьшить значение счётчика ниже 0\n"
+            log += "\(date): попытка уменьшить значение счётчика ниже 0\n"
             return
         } else if count == 1 {
             resetCounter()
-            log += "\(date.description): значение изменено на -1\n"
+            log += "\(date): значение изменено на -1\n"
             return
         }
         
         count -= 1
         valueLabel.text = "Значение счётчика: \(count)"
-        log += "\(date.description): значение изменено на -1\n"
+        log += "\(date): значение изменено на -1\n"
         
     }
     
-    @IBAction func plusButtonPressed(_ sender: Any) {
+    @IBAction private func plusButtonPressed(_ sender: Any) {
         count += 1
         valueLabel.text = "Значение счётчика: \(count)"
-        log += "\(date.description): значение изменено на +1\n"
+        log += "\(date): значение изменено на +1\n"
     }
     
-    @IBAction func clearButtonPressed(_ sender: Any) {
+    @IBAction private func clearButtonPressed(_ sender: Any) {
         resetCounter()
-        log += "\(date.description): значение сброшено\n"
+        log += "\(date): значение сброшено\n"
     }
 }
 
